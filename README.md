@@ -1,117 +1,105 @@
-# Detection of Convection-Triggered Gravity Waves Using Ground-Based LiDAR Signal Processing
 
-This project focuses on identifying and analyzing gravity wave patterns triggered by convection using ground-based LiDAR datasets. The work is conducted under the **Summer Research Fellowship Programme (SRFP)** at the **National Atmospheric Research Laboratory (NARL)**, Department of Space, India, under the guidance of **Dr. Bhavani Kumar Yellapragada**.
+# Detection and Spectral Analysis of Convection-Triggered Gravity Waves Using Ground-Based LIDAR Remote Sensing
 
-## 🔬 Objective
-
-To detect signatures of **convection-triggered gravity waves** from ground-based LiDAR backscatter signal data by applying **FFT-based spectral analysis** and **time series processing** across altitude levels.
+📍 **Institution:** National Atmospheric Research Laboratory (NARL), Gadanki  
+📅 **Duration:** 8 Weeks (Summer Research Fellowship Programme - SRFP 2025)  
+👨‍💻 **Intern:** Sudhan R (SRFP Reg. No: ENGS1672)  
+🧑‍🏫 **Guide:** Dr. Bhavani Kumar Yellapragada, MSc, Ph.D. (Retd. Scientist, Department of Space, NARL)
 
 ---
 
-## 📁 Dataset
+## 🛰️ Project Overview
 
-- **Type**: Ground-based LiDAR Backscatter data
-- **Location**: GADANKI, India
-- **Format**: Raw `.263354` binary files converted to `.npy`
-- **Time Resolution**: 30 seconds per profile
-- **Altitude Resolution**: 0.1 m per bin
-- **Observation Altitude**: 375 m to ~2600 m
-- **Data Size**: ~850 files merged
+This project explores the detection and spectral analysis of convection-triggered gravity waves in the lower atmosphere using high-resolution LiDAR backscatter data. The study was conducted during SRFP 2025 at NARL, aiming to understand atmospheric gravity wave behavior triggered by convective activity.
+
+---
+
+## 🎯 Objectives
+
+- Decode and preprocess Licel-format LiDAR TR files to extract atmospheric backscatter data.
+- Generate Range-Time Intensity (RTI) plots to visualize vertical atmospheric oscillations.
+- Extract time series data at multiple altitudes and apply Fast Fourier Transform (FFT) for spectral analysis.
+- Identify and interpret dominant frequencies and corresponding wave periods.
+- Investigate the vertical propagation and nature of gravity waves during the Convective Boundary Layer (CBL) evolution.
 
 ---
 
 ## 🧪 Methodology
 
-1. **Data Preprocessing**
-   - Read and decoded binary data using `numpy.fromfile`
-   - Converted and stacked profiles to form a time-altitude matrix
-   - Cleaned outliers and noise using smoothing & averaging
-
-2. **RTI (Range-Time Intensity) Plot Generation**
-   - Visualized spatiotemporal structure of LiDAR return signals
-   - Helped identify gravity wave propagation during CBL formation
-
-3. **Time Series Extraction**
-   - Extracted vertical time-series signal for selected altitude bins
-
-4. **Spectral Analysis**
-   - Applied Fast Fourier Transform (FFT)
-   - Identified dominant wave frequencies & calculated wave periods
-   - Annotated plots with peak frequency and time period markers
-
-5. **Phase Analysis**
-   - Compared phase angles across altitude bins
-   - Visualized phase shifts indicating vertical wave propagation
+- **Data Source:** Licel binary LiDAR files from NARL (23 January 2014, 16:26–17:57 IST)
+- **Data Preprocessing:**
+  - Decode binary files into NumPy arrays.
+  - Remove background noise and normalize signal.
+  - Stack 850+ backscatter profiles into a combined matrix.
+- **Visualization:**
+  - Create RTI plots showing signal intensity over time and altitude.
+- **Spectral Analysis:**
+  - Apply FFT on time series from 10 altitude bins (385 m to 409.3 m).
+  - Identify dominant frequencies and convert to wave periods.
 
 ---
 
-## 📊 Results
+## 📈 Results
 
-| Bin Index | Altitude (m) | Dominant Frequency (Hz) | Wave Period (min) |
-|-----------|---------------|--------------------------|--------------------|
-| 100       | 750.0         | 0.015044                 | 1.10               |
-| 127       | 952.5         | 0.015044                 | 1.10               |
-| 181       | 1357.5        | 0.000040                 | 421.00             |
-| 235       | 1762.5        | 0.000435                 | 38.27              |
-| 289       | 2167.5        | 0.000277                 | 60.14              |
-| 343       | 2572.5        | 0.000277                 | 60.14              |
+| Altitude (m) | Dominant Frequency (Hz) | Wave Period (min) | Interpretation |
+|--------------|--------------------------|--------------------|----------------|
+| 385.0        | 0.015044                 | ~1.1               | Local noise/turbulence |
+| 393.1        | 0.000040                 | ~421.0             | Long-period GW |
+| 398.5        | 0.000435                 | ~38.3              | Convective GW  |
+| 403.9        | 0.000277                 | ~60.1              | CBL-induced GW |
+| 409.3        | 0.000277                 | ~60.1              | CBL-induced GW |
 
-✅ Observed dominant long-period (421 min) and short-period (~38–60 min) wave features  
-✅ Phase difference between bins confirms vertical propagation pattern  
-✅ RTI plot verified initial CBL-triggered gravity wave formation
-
----
-
-## 🧠 Key Technologies
-
-- **Python** – Data analysis, FFT, Matplotlib plotting
-- **NumPy** – Signal matrix and binary data handling
-- **Matplotlib** – RTI and FFT plot generation
-- **SciPy** – FFT and signal processing
-- **Google Colab** – Cloud-based execution and visualization
+- Consistent wave period of ~421 min observed across multiple altitudes.
+- Shorter periods (38–60 min) found at mid-altitudes suggest convection-triggered waves.
+- Phase difference analysis confirmed vertical propagation patterns.
 
 ---
 
-## 📌 Key Learnings
+## 🛠️ Tools and Technologies
 
-- Processed raw LiDAR data from scientific binary formats  
-- Applied real-world atmospheric signal processing  
-- Understood vertical wave propagation through FFT  
-- Interpreted RTI plots and phase-angle shifts  
-- Documented and visualized atmospheric wave behavior
+- **Languages:** Python 3.10+
+- **Libraries:** NumPy, SciPy, Matplotlib, Pandas
+- **Environments:** Google Colab, Jupyter Notebook
+- **Other Tools:** FFT, RTI Plotting, Spectral Analysis
+
+---
+
+## 💡 Insights and Observations
+
+- RTI plots showed distinct vertical oscillations in backscatter signal.
+- Gravity wave activity was strongest between 398 m to 406 m altitude.
+- Low-altitude high-frequency signals (~1.1 min) likely represent localized noise.
+- Phase progression with height indicates upward wave propagation.
+
+---
+
+## 🔭 Future Scope
+
+- Extend analysis to multi-day LiDAR observations.
+- Integrate with meteorological data (e.g., radiosondes, wind, temperature).
+- Use advanced spectral methods (Wavelet Transform, EMD).
+- Automate decoding and plotting with a full Python pipeline.
+- Prepare research paper for journals or conferences.
+
+---
+
+## 🙏 Acknowledgements
+
+I sincerely thank:
+- **IAS, INSA, and NASI** for the SRFP 2025 opportunity.
+- **Dr. Bhavani Kumar Yellapragada** for invaluable mentorship and insights.
+- **NARL, Gadanki** for data, facilities, and support.
+- **Sri Eshwar College of Engineering** for institutional encouragement.
 
 ---
 
 ## 📚 References
 
-- Bhavani Kumar Y. et al., *Studies on Gravity Waves using LiDAR*, NARL, India  
-- Holton, J.R., *An Introduction to Dynamic Meteorology*, Academic Press  
-- Nappo, C.J., *An Introduction to Atmospheric Gravity Waves*, Elsevier  
-- NASA Earth Data and LiDAR Reference Models  
-- [SciPy FFT Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.fft.fft.html)  
-- [Matplotlib Official Documentation](https://matplotlib.org/stable/contents.html)
+- Ratnam et al., 2002 – Gravity wave activity over Gadanki using LiDAR and radiosonde data.
+- Tsuda et al., 2000 – Global morphology of gravity waves from GPS data.
+- Bhavani Kumar et al., 2006 – LIDAR observations of boundary layer dynamics over tropical stations.
+- Full reference list available in the [final report](./FINAL_REPORT_VER_2.pdf).
 
 ---
 
-## 📍 Author
-
-**Sudhan R**  
-B.E. CSE, Sri Eshwar College of Engineering  
-Summer Research Fellow – NARL, Department of Space  
-GitHub: [@SudhanR7](https://github.com/SudhanR7)  
-Contact: sudhan.r2022cse@sece.ac.in
-
----
-
-## 🏁 Status
-
-✔️ Report Completed  
-✔️ Verified and Approved by Guide  
-✔️ Submission to INSA Completed  
-✔️ Preparing for Publication & Conference Proposal (CLEO 2026)
-
----
-
-## 🔖 License
-
-This research was conducted as part of **SRFP 2025** and is under review for academic publication. All rights reserved by the author and guide.
+📩 **Contact:** rajansudhan0@gmail.com
