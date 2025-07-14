@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="Assets/Indian_Space_Research_Organisation_Logo.svg.png" alt="ISRO Logo" width="140" height="120"/>
+  <img src="Assets/Indian_Space_Research_Organisation_Logo.svg.png" alt="ISRO Logo" width="100" height="80"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="Assets/3.png" alt="NARL Logo" width="140" height="140"/>
+  <img src="Assets/NARL.png" alt="NARL Logo" width="100" height="100"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="Assets/0.png" alt="INSA" width="140" height="140"/>
+  <img src="Assets/0.png" alt="INSA" width="100" height="100"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="Assets/1.png" alt="INSA Logo" width="140" height="140"/>
+  <img src="Assets/1.png" alt="INSA Logo" width="100" height="100"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="Assets/2.png" alt="INSA Logo" width="140" height="140"/>
+  <img src="Assets/2.png" alt="INSA Logo" width="100" height="100"/>
   &nbsp;&nbsp;&nbsp;
 </p>
 
